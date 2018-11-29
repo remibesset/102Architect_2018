@@ -7,6 +7,7 @@
 
 SRC = src/main.c \
 	src/my_lib.c \
+	src/init_matrix.c \
 
 OBJ = $(SRC:.c=.o)
 
