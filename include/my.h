@@ -37,7 +37,7 @@ void it_is_good_flag(char const *str);
 void manage_number(char const **av, int *i, int nb_number, int ac);
 void there_is_number_after(char const **av, int *i, int ac);
 int manage_error(int ac, char const **av);
-int my_show_list(linked_list_t *list, float x, float y);
+void my_show_list(linked_list_t *list, float x, float y);
 void index_commmand(void);
 float *mutipicate_matrix(float *matrix, float *matrix2);
 float *reflection(float x, float y, char const **av, int i);

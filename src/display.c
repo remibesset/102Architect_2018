@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include "../include/my.h"
 
-int my_show_list(linked_list_t *list, float x, float y)
+void my_show_list(linked_list_t *list, float x, float y)
 {
     linked_list_t *tmp;
     float *matrix = malloc(sizeof(int) * 9);
@@ -25,14 +25,14 @@ int my_show_list(linked_list_t *list, float x, float y)
         tmp = tmp->next;
     }
     for (int i = 0; i < 9; i++) {
-        printf("%.2f  ", matrix[i]);
         if (i % 3 == 2)
-            printf("\n");
+            printf("%-4.2f\n", matrix[i]);
+        else
+            printf("%-7.2f", matrix[i]);
     }
     resultx = x * matrix[0] + y * matrix[1] + matrix[2];
     resulty = x * matrix[3] + y * matrix[4] + matrix[5];
     printf("(%.0f, %.0f) => (%.2f, %.2f)\n", x, y, resultx, resulty);
-    return (0);
 }
 
 void index_commmand(void)
