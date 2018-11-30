@@ -15,8 +15,7 @@ int it_is_a_number(char const *av)
     int i = 0;
 
     while (av[i] != '\0') {
-        if (av[i] < '0' && av[i] > '9') {
-            return (0);
+        if ((av[i] < '0' || av[i] > '9') && av[i] != '-') {
             exit(84);
         }
         i++;
