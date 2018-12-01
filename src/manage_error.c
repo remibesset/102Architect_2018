@@ -33,11 +33,8 @@ void it_is_good_flag(char const *str)
     if (my_strlen(str) != 2)
         exit(84);
     while (str[i] != '\0') {
-        for (j = 0; j < 4 ; j++) {
+        for (j = 0; j < 4 && passed == 0; j++)
             passed = (str[i] == array[j]) ? 1 : 0;
-            if (passed == 1)
-                break;
-        }
         if (passed == 0)
             exit(84);
         i++;
@@ -68,14 +65,15 @@ void manage_number(char const **av, int *i, int nb_number, int ac)
 
 void there_is_number_after(char const **av, int *i, int ac)
 {
-    if (av[*i][0] == '-' && av[*i][1] == 't') {
+    if (av[*i][0] == '-' && av[*i][1] == 't')
         manage_number(av, i, 2, ac);
-    } else if (av[*i][0] == '-' && av[*i][1] == 'z') {
+    else if (av[*i][0] == '-' && av[*i][1] == 'z')
         manage_number(av, i, 2, ac);
-    } else if (av[*i][0] == '-' && av[*i][1] == 'r') {
-        manage_number(av, i, 1, ac);
-    } else if (av[*i][0] == '-' && av[*i][1] == 's') {
-        manage_number(av, i, 1, ac);
+    else {
+        if (av[*i][0] == '-' && av[*i][1] == 'r')
+            manage_number(av, i, 1, ac);
+        else if (av[*i][0] == '-' && av[*i][1] == 's')
+            manage_number(av, i, 1, ac);
     }
 }
 
@@ -93,9 +91,8 @@ int manage_error(int ac, char const **av)
         if (av[i][0] == '-') {
             it_is_good_flag(av[i]);
             there_is_number_after(av, &i, ac);
-        } else {
+        } else
             exit(84);
-        }
     }
     return (0);
 }
